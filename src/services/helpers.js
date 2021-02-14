@@ -19,3 +19,8 @@ export const filterMediaForImages = (media) => {
   }).filter(img => img); // filter out predetermined null(non image url) values
   return mappedImages;
 };
+
+export const formatPrice = (price) => {
+  if (!price) return '';
+  return new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(price);
+};

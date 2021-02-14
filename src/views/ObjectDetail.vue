@@ -27,6 +27,25 @@
             {{currentObject.Postcode}} {{currentObject.Plaats}}
           </template>
         </Title>
+
+        <DescriptionList classes="mt-05">
+          <DescriptionListItem>
+            <template v-slot:description-t>
+              Asking price
+            </template>
+            <template v-slot:description-d>
+              {{objectPrice}}
+            </template>
+          </DescriptionListItem>
+          <DescriptionListItem>
+            <template v-slot:description-t>
+              Number of rooms
+            </template>
+            <template v-slot:description-d>
+              {{currentObject.AantalKamers}}
+            </template>
+          </DescriptionListItem>
+        </DescriptionList>
       </div>
     </div>
 
@@ -38,17 +57,22 @@
 </template>
 
 <script>
-import { onMounted } from 'vue';
+import { onMounted, computed } from 'vue';
 
 // components
 import Image from '@/components/ui/Image.vue';
 import ErrorMessage from '@/components/ui/ErrorMessage.vue';
 import Loader from '@/components/ui/Loader.vue';
 import Title from '@/components/ui/Title.vue';
+import DescriptionList from '@/components/ui/DescriptionList.vue';
+import DescriptionListItem from '@/components/ui/DescriptionListItem.vue';
 import ImageGrid from '@/components/ImageGrid.vue';
 
 // hooks
 import { useObjectData } from '@/hooks/useObjectData';
+
+// services
+import { formatPrice } from '@/services/helpers';
 
 export default {
   name: 'Object Detail',
@@ -57,7 +81,9 @@ export default {
     ImageGrid,
     ErrorMessage,
     Loader,
-    Title
+    Title,
+    DescriptionList,
+    DescriptionListItem
   },
   setup() {
     const {
@@ -72,9 +98,14 @@ export default {
       getObject();
     });
 
+    const objectPrice = computed(() => {
+      return formatPrice(currentObject.value.Koopprijs);
+    });
+
     return {
       currentObject,
       currentObjectImages,
+      objectPrice,
       loading,
       error
     };
