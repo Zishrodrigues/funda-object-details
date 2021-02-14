@@ -29,6 +29,11 @@
         </Title>
       </div>
     </div>
+
+    <ImageGrid
+      v-if="currentObjectImages"
+      :images="currentObjectImages"
+    />
   </template>
 </template>
 
@@ -40,6 +45,7 @@ import Image from '@/components/ui/Image.vue';
 import ErrorMessage from '@/components/ui/ErrorMessage.vue';
 import Loader from '@/components/ui/Loader.vue';
 import Title from '@/components/ui/Title.vue';
+import ImageGrid from '@/components/ImageGrid.vue';
 
 // hooks
 import { useObjectData } from '@/hooks/useObjectData';
@@ -48,6 +54,7 @@ export default {
   name: 'Object Detail',
   components: {
     Image,
+    ImageGrid,
     ErrorMessage,
     Loader,
     Title
@@ -55,6 +62,7 @@ export default {
   setup() {
     const {
       currentObject,
+      currentObjectImages,
       getObject,
       loading,
       error
@@ -66,6 +74,7 @@ export default {
 
     return {
       currentObject,
+      currentObjectImages,
       loading,
       error
     };
