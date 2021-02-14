@@ -4,5 +4,7 @@
 // Normally I'd opt for using a css utility framework such as Tailwind
 // I used Tailwind's naming conventions
 // utilities
+@import 'utilities/display';
+@import 'utilities/layout';
 @import 'utilities/position';
-
+@import 'utilities/sizing';

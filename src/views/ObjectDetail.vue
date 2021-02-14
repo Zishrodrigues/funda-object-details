@@ -10,10 +10,25 @@
   />
 
   <template v-if="currentObject">
-    <Image
-      :imageSrc="currentObject.HoofdFoto"
-      :alt="`Picture of ${currentObject.Adres}`"
-    />
+    <div class="flex detailsContainer">
+      <div class="flex-1">
+        <Image
+          :imageSrc="currentObject.HoofdFoto"
+          :alt="currentObject.HoofdFoto"
+          classes="block h-full w-full object-cover"
+        />
+      </div>
+      <div class="flex-1">
+        <Title>
+          <template v-slot:title>
+            {{currentObject.Adres}}
+          </template>
+          <template v-slot:subTitle>
+            {{currentObject.Postcode}} {{currentObject.Plaats}}
+          </template>
+        </Title>
+      </div>
+    </div>
   </template>
 </template>
 
@@ -24,6 +39,7 @@ import { onMounted } from 'vue';
 import Image from '@/components/ui/Image.vue';
 import ErrorMessage from '@/components/ui/ErrorMessage.vue';
 import Loader from '@/components/ui/Loader.vue';
+import Title from '@/components/ui/Title.vue';
 
 // hooks
 import { useObjectData } from '@/hooks/useObjectData';
@@ -33,7 +49,8 @@ export default {
   components: {
     Image,
     ErrorMessage,
-    Loader
+    Loader,
+    Title
   },
   setup() {
     const {
