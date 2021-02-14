@@ -1,6 +1,10 @@
 <template>
   <img
     :src="imageSrc"
+    :srcset="`
+      ${imageSrcMedium ? imageSrcMedium + ' 640w': ''}
+      ${imageSrcSmall ? imageSrcSmall + ' 320w': ''}
+    `"
     :alt="alt"
     :class="classes"
   >
