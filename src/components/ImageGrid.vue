@@ -8,8 +8,10 @@
     >
       <Image
         :imageSrc="image.small"
-        :imageSrcSmall="image.Small"
+        :imageSrcSmall="image.small"
         :imageSrcMedium="image.medium"
+        :imageSrcLarge="image.large"
+        lazyLoad
         alt="Picture of address"
         classes="block w-full"
       />

@@ -1,8 +1,9 @@
 <template>
   <img
-    :src="imageSrc"
+    v-lazy="imageSrc"
     :srcset="`
-      ${imageSrcMedium ? imageSrcMedium + ' 640w': ''}
+      ${imageSrcLarge ? imageSrcLarge + ' 700w,': ''}
+      ${imageSrcMedium ? imageSrcMedium + ' 640w,': ''}
       ${imageSrcSmall ? imageSrcSmall + ' 320w': ''}
     `"
     :alt="alt"
@@ -30,8 +31,16 @@ export default {
       type: String,
       required: false
     },
+    imageSrcLarge: {
+      type: String,
+      required: false
+    },
     classes: {
       type: String,
+      required: false
+    },
+    lazyLoad: {
+      type: Boolean,
       required: false
     }
   }

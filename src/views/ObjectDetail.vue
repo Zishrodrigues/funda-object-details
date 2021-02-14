@@ -13,6 +13,7 @@
     <div class="flex border-orange border-solid border-0 border-b-05">
       <div class="flex-1">
         <Image
+          lazyLoad
           :imageSrc="currentObject.HoofdFoto"
           :alt="currentObject.HoofdFoto"
           classes="block h-full w-full object-cover"
