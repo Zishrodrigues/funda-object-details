@@ -10,7 +10,7 @@
   />
 
   <template v-if="currentObject">
-    <div class="flex detailsContainer">
+    <div class="flex border-orange border-solid border-0 border-b-05">
       <div class="flex-1">
         <Image
           :imageSrc="currentObject.HoofdFoto"
@@ -18,7 +18,7 @@
           classes="block h-full w-full object-cover"
         />
       </div>
-      <div class="flex-1">
+      <div class="flex-1 p-1">
         <Title>
           <template v-slot:title>
             {{currentObject.Adres}}
