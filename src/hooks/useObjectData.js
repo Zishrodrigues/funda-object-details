@@ -2,9 +2,11 @@ import { reactive, toRefs } from 'vue';
 
 // services
 import { request } from '@/services/request';
+import { filterMediaForImages } from '@/services/helpers';
 
 const state = reactive({
   currentObject: null,
+  currentObjectImages: null,
   loading: false,
   error: ''
 });
@@ -21,8 +23,9 @@ export const useObjectData = () => {
     ).then(
       (response) => {
         state.loading = false;
-        console.log('response', response);
         state.currentObject = response.data;
+        state.currentObjectImages = filterMediaForImages(response.data.Media);
+        console.log('response', state.currentObjectImages);
       },
       (error) => {
         console.log('error', error);
