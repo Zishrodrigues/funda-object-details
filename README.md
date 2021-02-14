@@ -1,0 +1,1 @@
+# funda-object-details
