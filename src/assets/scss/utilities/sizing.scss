@@ -2,10 +2,18 @@
   width: 100%;
 }
 
+.max-w-full {
+  max-width: 100%;
+}
+
 .h-full {
   height: 100%;
 }
 
 .object-cover {
   object-fit: cover;
+}
+
+.object-contain {
+  object-fit: contain;
 }
