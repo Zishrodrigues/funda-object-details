@@ -32,7 +32,7 @@
         </Title>
 
         <DescriptionList classes="mt-05">
-          <DescriptionListItem>
+          <DescriptionListItem v-if="currentObject.Koopprijs">
             <template v-slot:description-t>
               Asking price
             </template>
@@ -40,12 +40,20 @@
               {{objectPrice}}
             </template>
           </DescriptionListItem>
-          <DescriptionListItem>
+          <DescriptionListItem v-if="currentObject.AantalKamers">
             <template v-slot:description-t>
               Number of rooms
             </template>
             <template v-slot:description-d>
               {{currentObject.AantalKamers}}
+            </template>
+          </DescriptionListItem>
+          <DescriptionListItem v-if="currentObject.Makelaar">
+            <template v-slot:description-t>
+              Real Estate agent
+            </template>
+            <template v-slot:description-d>
+              {{currentObject.Makelaar}}
             </template>
           </DescriptionListItem>
         </DescriptionList>
