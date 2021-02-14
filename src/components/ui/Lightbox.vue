@@ -8,6 +8,7 @@
         cursor-pointer
         z-80
         bg-white
+        text-orange
         p-1
       "
       @click="closeLightbox"
