@@ -33,6 +33,7 @@ export default {
         bottom-0
         right-0
         bg-white
+        z-70
       `
     }
   },

@@ -34,6 +34,7 @@ export default {
         w-5
         border-none
         outline-none
+        z-60
       `
     }
   }
