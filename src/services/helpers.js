@@ -39,7 +39,7 @@ export const getRandomObjectId = (currentId) => {
   const randomIndex = getRandomNumber(objectIds.length);
   const randomId = objectIds[randomIndex];
   if (randomId === currentId) {
-    return getRandomObjectId(currentId);
+    return getRandomObjectId(currentId); // Using recursion to make sure the next ID doesn't match the current one
   }
   return randomId;
 };

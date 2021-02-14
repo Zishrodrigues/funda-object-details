@@ -116,7 +116,7 @@ export default {
       return formatPrice(currentObject.value.Koopprijs);
     });
 
-    return {
+    return { // props returned here can be accessed in the component template
       currentObject,
       currentObjectImages,
       objectPrice,
