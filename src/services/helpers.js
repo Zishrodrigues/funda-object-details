@@ -24,3 +24,22 @@ export const formatPrice = (price) => {
   if (!price) return '';
   return new Intl.NumberFormat('nl-NL', { style: 'currency', currency: 'EUR' }).format(price);
 };
+
+const getRandomNumber = (num) => {
+  return Math.floor(Math.random() * num);
+};
+
+export const getRandomObjectId = (currentId) => {
+  const objectIds = [
+    'fde24766-9268-4be1-a570-89fd6f481fc5',
+    'd8b3dde1-d67a-45ca-ae01-b88de0eac7c2',
+    '70272dba-630c-4a72-b499-ffe6ad6e9055',
+    'e4a9f0b2-9bc8-4d13-a835-b017bfa5aece'
+  ];
+  const randomIndex = getRandomNumber(objectIds.length);
+  const randomId = objectIds[randomIndex];
+  if (randomId === currentId) {
+    return getRandomObjectId(currentId);
+  }
+  return randomId;
+};

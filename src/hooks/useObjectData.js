@@ -25,7 +25,7 @@ export const useObjectData = () => {
         state.loading = false;
         state.currentObject = response.data;
         state.currentObjectImages = filterMediaForImages(response.data.Media);
-        console.log('response', state.currentObject);
+        // console.log('response', state.currentObject);
       },
       (error) => {
         console.log('error', error);

@@ -13,8 +13,10 @@
     <div class="flex border-orange border-solid border-0 border-b-05">
       <div class="flex-1">
         <Image
-          lazyLoad
           :imageSrc="currentObject.HoofdFoto"
+          :imageSrcSmall="currentObject.Media[0].MediaItems[0].Url"
+          :imageSrcMedium="currentObject.Media[0].MediaItems[1].Url"
+          :imageSrcLarge="currentObject.Media[0].MediaItems[2].Url"
           :alt="currentObject.HoofdFoto"
           classes="block h-full w-full object-cover"
         />
@@ -54,6 +56,10 @@
       v-if="currentObjectImages"
       :images="currentObjectImages"
     />
+
+    <NextButton
+      v-on:click="nextObject"
+    />
   </template>
 </template>
 
@@ -68,12 +74,13 @@ import Title from '@/components/ui/Title.vue';
 import DescriptionList from '@/components/ui/DescriptionList.vue';
 import DescriptionListItem from '@/components/ui/DescriptionListItem.vue';
 import ImageGrid from '@/components/ImageGrid.vue';
+import NextButton from '@/components/NextButton.vue';
 
 // hooks
 import { useObjectData } from '@/hooks/useObjectData';
 
 // services
-import { formatPrice } from '@/services/helpers';
+import { formatPrice, getRandomObjectId } from '@/services/helpers';
 
 export default {
   name: 'Object Detail',
@@ -84,7 +91,8 @@ export default {
     Loader,
     Title,
     DescriptionList,
-    DescriptionListItem
+    DescriptionListItem,
+    NextButton
   },
   setup() {
     const {
@@ -99,6 +107,11 @@ export default {
       getObject();
     });
 
+    const nextObject = () => {
+      const id = getRandomObjectId(currentObject.value.InternalId);
+      getObject(id);
+    };
+
     const objectPrice = computed(() => {
       return formatPrice(currentObject.value.Koopprijs);
     });
@@ -107,6 +120,7 @@ export default {
       currentObject,
       currentObjectImages,
       objectPrice,
+      nextObject,
       loading,
       error
     };

@@ -12,6 +12,11 @@
   }
 }
 
+.center-v {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .top-0 {
   top: 0;
 }
@@ -26,6 +31,10 @@
 
 .bottom-0 {
   bottom: 0;
+}
+
+.bottom-1 {
+  bottom: 1rem;
 }
 
 .right-0 {

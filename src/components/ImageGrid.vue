@@ -11,7 +11,6 @@
         :imageSrcSmall="image.small"
         :imageSrcMedium="image.medium"
         :imageSrcLarge="image.large"
-        lazyLoad
         alt="Picture of address"
         classes="block w-full"
       />
