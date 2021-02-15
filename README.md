@@ -33,4 +33,11 @@ npm run build
 npm run lint
 ```
 
+## Further development
 
+Things I would add during further development of this app
+* Further expand the unit tests
+* Add e2e tests
+* Add a service worker for increased performance
+* Have the option for a previous button when fetching data, caching the previous object in the state
+* Add Tailwind
