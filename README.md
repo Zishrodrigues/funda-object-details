@@ -35,7 +35,7 @@ npm run lint
 
 ## Further development
 
-Things I would add during further development of this app
+Things I would like add during further development of this app
 * Further expand the unit tests
 * Add e2e tests
 * Add a service worker for increased performance
