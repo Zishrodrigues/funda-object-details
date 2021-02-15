@@ -28,6 +28,11 @@ npm run start
 npm run build
 ```
 
+### Run tests
+```
+npm run test
+```
+
 ### Lints files
 ```
 npm run lint
