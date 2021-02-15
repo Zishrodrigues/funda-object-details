@@ -65,14 +65,16 @@ export default {
       transition: 0.3s ease;
     }
 
-    &:hover,
-    &:active {
-      .icon {
-        transform: translateX(0.2rem);
-      }
+    @media (min-width: $medium) {
+      &:hover,
+      &:active {
+        .icon {
+          transform: translateX(0.2rem);
+        }
 
-      &:after {
-        transform: translateX(0);
+        &:after {
+          transform: translateX(0);
+        }
       }
     }
   }

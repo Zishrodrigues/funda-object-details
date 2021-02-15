@@ -2,9 +2,9 @@
   <img
     v-lazy="imageSrc"
     :srcset="`
-      ${imageSrcLarge ? imageSrcLarge + ' 700w,': ''}
-      ${imageSrcMedium ? imageSrcMedium + ' 640w,': ''}
-      ${imageSrcSmall ? imageSrcSmall + ' 320w': ''}
+      ${imageSrcLarge ? imageSrcLarge + ' 580w,': ''}
+      ${imageSrcMedium ? imageSrcMedium + ' 242w,': ''}
+      ${imageSrcSmall ? imageSrcSmall + ' 121w': ''}
     `"
     :alt="alt"
     :class="classes"

@@ -22,7 +22,7 @@
       v-on:close="toggleLightbox"
     >
       <Image
-        :imageSrc="this.images[imageIndex].large"
+        :imageSrc="this.images[imageIndex].largest"
         alt="Picture of address"
         classes="
           block
