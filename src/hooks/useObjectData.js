@@ -20,13 +20,8 @@ const hasCredentials = () => {
 };
 
 export const useObjectData = () => {
-  if (!hasCredentials) return;
-
   const getObject = (id = '6289a7bb-a1a8-40d5-bed1-bff3a5f62ee6') => { // default object key
-    if (!process.env.VUE_APP_API_KEY) {
-      state.error = 'Looks like you\'re missing the right credentials. Try adding your API key to the .env file.';
-      return;
-    }
+    if (!hasCredentials()) return;
     state.loading = true;
     request(
       `${process.env.VUE_APP_API_URL}feeds/Aanbod.svc/json/detail/${process.env.VUE_APP_API_KEY}/koop/${id}`
